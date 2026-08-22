@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home - haydencrain.dev</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -13,10 +14,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <style>
     body {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: auto auto;
       justify-content: center;
+      justify-items: center;
       align-items: center;
+      align-content: center;
       gap: 2rem;
       min-height: 100vh;
       margin: 0;
@@ -25,6 +28,16 @@
       background: #f5f5f5;
       font-family: 'Nanum Pen Script', cursive;
       text-align: center;
+      cursor: url("cursor-default.png") 0 0, auto;
+    }
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [onclick] {
+      cursor: url("cursor-pointer.png") 0 0, pointer;
     }
     img {
       width: min(292px, 60vw, 80vh * 292 / 851);
@@ -42,6 +55,18 @@
     }
     .prefix .name {
       font-size: 3rem;
+    }
+    @media (max-width: 600px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+      img {
+        order: 1;
+        width: min(292px, 60vw);
+      }
+      .prefix {
+        order: 0;
+      }
     }
   </style>
 </head>
