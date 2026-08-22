@@ -15,12 +15,6 @@
   <style>
     body {
       display: grid;
-      grid-template-columns: auto auto;
-      justify-content: center;
-      justify-items: center;
-      align-items: center;
-      align-content: center;
-      gap: 2rem;
       min-height: 100vh;
       margin: 0;
       padding: 1rem;
@@ -29,6 +23,7 @@
       font-family: 'Nanum Pen Script', cursive;
       text-align: center;
       cursor: url("cursor-default.png") 0 0, auto;
+      place-items: center;
     }
     a,
     button,
@@ -39,10 +34,19 @@
     [onclick] {
       cursor: url("cursor-pointer.png") 0 0, pointer;
     }
-    img {
-      width: min(292px, 60vw, 80vh * 292 / 851);
+    .hero {
+      display: grid;
+      grid-template-columns: auto minmax(120px, 1fr) auto;
+      grid-template-areas: "intro photo links";
+      gap: 2rem;
+    }
+    .photo {
+      grid-area: photo;
+      justify-self: center;
+      width: min(292px, 100%, 60vw, 80vh * 292 / 851);
       aspect-ratio: 292 / 851;
       height: auto;
+      max-width: 100%;
     }
     p {
       margin: 0;
@@ -50,32 +54,91 @@
       color: #222;
     }
     .prefix {
+      grid-area: intro;
+      justify-self: start;
+      align-self: start;
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
     }
     .prefix .name {
       font-size: 3rem;
     }
-    @media (max-width: 600px) {
-      body {
+    .links {
+      grid-area: links;
+      justify-self: end;
+      align-self: end;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      text-align: left;
+    }
+    .links .title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .links a img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    @media (max-width: 900px) {
+      .hero {
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "photo"
+          "intro"
+          "links";
+        justify-items: center;
       }
-      img {
-        order: 1;
-        width: min(292px, 60vw);
+      .photo {
+        width: min(110px, 30vw);
       }
       .prefix {
-        order: 0;
+        justify-self: center;
+        align-self: auto;
+      }
+      .links {
+        justify-self: center;
+        align-self: auto;
+        text-align: center;
+      }
+      .links a {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
-  <img src="hayden-standing.avif" alt="Hayden Crain" width="292" height="851">
-  <p class="prefix">
-    hello, thank u for visiting<br>
-    <span class="name">HAYDEN CRAIN's</span><br>
-    webpage
-  </p>
+  <div class="hero">
+    <p class="prefix">
+      hello, thank u for visiting<br>
+      <span class="name">HAYDEN CRAIN's</span><br>
+      webpage
+    </p>
+    <img class="photo" src="hayden-standing.avif" alt="Hayden Crain" width="292" height="851">
+    <div class="links">
+      <p class="title">Senior Software Engineer at Canva</p>
+      <ul>
+        <li><a href="https://www.canva.com/"><img src="canva.png" alt=""> https://www.canva.com/</a></li>
+        <li><a href="https://www.linkedin.com/in/hayden-crain/"><img src="linkedin.svg" alt=""> https://www.linkedin.com/in/hayden-crain/</a></li>
+        <li><a href="https://github.com/haydencrain"><img src="octocat.svg" alt=""> https://github.com/haydencrain</a></li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
