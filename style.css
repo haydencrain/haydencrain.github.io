@@ -8,7 +8,7 @@ body {
   background: #f5f5f5;
   font-family: 'Nanum Pen Script', cursive;
   text-align: center;
-  cursor: url("cursor-default.png") 0 0, auto;
+  cursor: url("assets/cursor-default.png") 0 0, auto;
 }
 a,
 button,
@@ -17,7 +17,7 @@ select,
 textarea,
 [role="button"],
 [onclick] {
-  cursor: url("cursor-pointer.png") 0 0, pointer;
+  cursor: url("assets/cursor-pointer.png") 0 0, pointer;
 }
 
 .site-header {
