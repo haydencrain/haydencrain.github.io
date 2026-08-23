@@ -152,3 +152,85 @@ p {
     font-size: 1.5rem;
   }
 }
+
+.project-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #222;
+  border-radius: 6px;
+  background: #fffdf9;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project:hover,
+.project:focus-within {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #222;
+}
+.project-image-link {
+  display: block;
+}
+.project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-bottom: 2px solid #222;
+}
+.project-body {
+  padding: 0.75rem 1rem 1rem;
+  text-align: left;
+}
+.project-name {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 1.1;
+}
+.project-name a {
+  color: #222;
+  text-decoration: none;
+}
+.project-name a:hover,
+.project-name a:focus-visible {
+  text-decoration: underline;
+}
+.project-meta,
+.project-description,
+.project-links {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.project-meta {
+  margin: 0.1rem 0 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+.project-description {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.project-links {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+.project-links a {
+  color: #222;
+}
+.project-note {
+  font-size: 1.6rem;
+}
