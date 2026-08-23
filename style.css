@@ -1,0 +1,154 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f5f5f5;
+  font-family: 'Nanum Pen Script', cursive;
+  text-align: center;
+  cursor: url("cursor-default.png") 0 0, auto;
+}
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[onclick] {
+  cursor: url("cursor-pointer.png") 0 0, pointer;
+}
+
+.site-header {
+  padding: 1.5rem 1rem 0;
+}
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  font-size: 1.8rem;
+}
+.site-nav a {
+  color: #222;
+  text-decoration: none;
+}
+.site-nav a:hover,
+.site-nav a:active {
+  text-decoration: underline;
+}
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr) auto;
+  grid-template-areas: "intro photo links";
+  gap: 2rem;
+}
+.photo {
+  grid-area: photo;
+  justify-self: center;
+  width: min(292px, 100%, 60vw, 80vh * 292 / 851);
+  aspect-ratio: 292 / 851;
+  height: auto;
+  max-width: 100%;
+}
+p {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #222;
+}
+.prefix {
+  grid-area: intro;
+  justify-self: start;
+  align-self: start;
+  font-size: 1.5rem;
+}
+.prefix .name {
+  font-size: 3rem;
+}
+.links {
+  grid-area: links;
+  justify-self: end;
+  align-self: end;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align: left;
+}
+.links .title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+.links a img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.page-content {
+  max-width: 700px;
+  font-size: 1.6rem;
+  color: #222;
+  line-height: 1.5;
+}
+.page-content h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "intro"
+      "links";
+    justify-items: center;
+  }
+  .photo {
+    width: min(110px, 30vw);
+  }
+  .prefix {
+    justify-self: center;
+    align-self: auto;
+  }
+  .links {
+    justify-self: center;
+    align-self: auto;
+    text-align: center;
+  }
+  .links a {
+    justify-content: center;
+  }
+  .site-nav {
+    gap: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
