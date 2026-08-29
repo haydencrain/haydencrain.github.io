@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=2">
+  <link rel="stylesheet" href="/style.css?v=4">
 </head>
 <body>
   <header class="site-header">
@@ -29,7 +29,11 @@
         <span class="name">HAYDEN CRAIN's</span><br>
         webpage
       </p>
-      <img class="photo" src="assets/hayden-standing.avif" alt="Hayden Crain" width="292" height="851">
+      <picture class="photo">
+        <source srcset="assets/hayden-standing.avif" type="image/avif">
+        <source srcset="assets/hayden-standing.webp" type="image/webp">
+        <img src="assets/hayden-standing.png" alt="Hayden Crain" width="292" height="851">
+      </picture>
       <div class="links">
         <p class="title">Senior Software Engineer at Canva</p>
         <ul>
