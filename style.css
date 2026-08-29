@@ -56,12 +56,18 @@ main {
   gap: 2rem;
 }
 .photo {
+  display: block;
   grid-area: photo;
   justify-self: center;
   width: min(292px, 100%, 60vw, 80vh * 292 / 851);
   aspect-ratio: 292 / 851;
   height: auto;
   max-width: 100%;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 p {
   margin: 0;
