@@ -118,6 +118,10 @@ p {
   color: #222;
   line-height: 1.5;
 }
+.page-content--wide {
+  max-width: 1100px;
+  width: 100%;
+}
 .page-content h1 {
   font-size: 3rem;
   margin: 0 0 1rem;
@@ -187,6 +191,9 @@ p {
   border-bottom: 2px solid #222;
 }
 .project-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 0.75rem 1rem 1rem;
   text-align: left;
 }
@@ -221,8 +228,8 @@ p {
 }
 .project-links {
   list-style: none;
-  margin: 0.8rem 0 0;
-  padding: 0;
+  margin: auto 0 0;
+  padding: 0.8rem 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 1rem;
