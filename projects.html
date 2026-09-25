@@ -11,118 +11,137 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header class="site-header">
-    <nav class="site-nav">
+    <a class="site-name" href="/">haydencrain.dev</a>
+    <nav class="site-nav" aria-label="Main">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/projects" aria-current="page">Projects</a>
     </nav>
   </header>
-  <main>
-    <div class="page-content page-content--wide">
-      <h1>Projects</h1>
-      <ul class="project-list">
-        <li class="project">
-          <a class="project-image-link" href="https://github.com/sguillema/ses2-web" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/uts-helps.jpg" alt="" width="800" height="450" loading="lazy">
-          </a>
+  <main class="page projects">
+    <h1>Projects</h1>
+    <div class="project-grid">
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/uts-helps.jpg" alt="Screenshot of UTS:HELPS Booking System" width="800" height="450" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">1</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://github.com/sguillema/ses2-web" target="_blank" rel="noopener noreferrer nofollow">UTS:HELPS Booking System</a>
-            </h2>
-            <p class="project-meta">Software Engineering Studio 2A &amp; 2B &middot; NodeJS, NuxtJS, Vue</p>
-            <p class="project-description">HELPS Booking System is an online tool for UTS Helps Centre to organise its education services (workshops and consultations) for UTS students. During Software Engineering Studio 2A and 2B, a team of myself and 10 peers were put in charge of rebuilding the platform.</p>
+            <div class="project-head">
+              <h2>UTS:HELPS Booking System, <span class="project-year">[Year]</span></h2>
+              <p>Software Engineering Studio 2A &amp; 2B</p>
+              <p class="project-stack">NodeJS, NuxtJS, Vue</p>
+            </div>
+            <p>Booking for the UTS HELPS centre’s workshops and consultations. I led development of the rebuild, with a team of eleven, over two semesters.</p>
             <ul class="project-links">
-              <li><a href="https://github.com/sguillema/ses2-web" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://github.com/sguillema/ses2-web" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
             </ul>
           </div>
-        </li>
-        <li class="project">
-          <a class="project-image-link" href="https://github.com/haydencrain/pictochat" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/pictochat.jpg" alt="" width="800" height="718" loading="lazy">
-          </a>
+        </div>
+      </article>
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/pictochat.jpg" alt="Screenshot of Pictochat" width="800" height="718" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">2</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://github.com/haydencrain/pictochat" target="_blank" rel="noopener noreferrer nofollow">Pictochat</a>
-            </h2>
-            <p class="project-meta">Advanced Internet Programming &middot; 2019</p>
-            <p class="project-description">Pictochat was built as part of an assignment for Advanced Internet Programming, which required us to build a full-stack application using JavaScript tools. For our stack we chose ReactJS (with MobX for state management), NodeJS and MongoDB.</p>
+            <div class="project-head">
+              <h2>Pictochat, <span class="project-year">2019</span></h2>
+              <p>Advanced Internet Programming</p>
+              <p class="project-stack">React, MobX, NodeJS, MongoDB</p>
+            </div>
+            <p>A full-stack JavaScript app built for the subject’s major assignment; the team chose the stack.</p>
             <ul class="project-links">
-              <li><a href="https://github.com/haydencrain/pictochat" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://github.com/haydencrain/pictochat" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
             </ul>
           </div>
-        </li>
-        <li class="project">
-          <a class="project-image-link" href="https://github.com/haydencrain/HealthClientApp" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/health-client-app.jpg" alt="" width="658" height="436" loading="lazy">
-          </a>
+        </div>
+      </article>
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/health-client-app.jpg" alt="Screenshot of HealthClientApp" width="658" height="436" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">3</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://github.com/haydencrain/HealthClientApp" target="_blank" rel="noopener noreferrer nofollow">HealthClientApp</a>
-            </h2>
-            <p class="project-meta">Software Engineering Studio 1B &middot; Android, Java, Firebase</p>
-            <p class="project-description">HealthClientApp is a project that was made during Software Engineering Studio 1B and was built using Android Studio, JDK8 and Firebase. The application allows Doctors and Patients to communicate and collaborate through the comfort of an Android phone.</p>
+            <div class="project-head">
+              <h2>HealthClientApp, <span class="project-year">[Year]</span></h2>
+              <p>Software Engineering Studio 1B · Best app in the class</p>
+              <p class="project-stack">Android, Java, Firebase</p>
+            </div>
+            <p>An Android app for doctors and patients to communicate and work together.</p>
             <ul class="project-links">
-              <li><a href="https://github.com/haydencrain/HealthClientApp" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://github.com/haydencrain/HealthClientApp" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
             </ul>
           </div>
-        </li>
-        <li class="project">
-          <a class="project-image-link" href="https://github.com/justinwilkin/code2change" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/siq-invite.jpg" alt="" width="800" height="531" loading="lazy">
-          </a>
+        </div>
+      </article>
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/siq-invite.jpg" alt="Screenshot of SiqInvite" width="800" height="531" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">4</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://github.com/justinwilkin/code2change" target="_blank" rel="noopener noreferrer nofollow">SiqInvite</a>
-            </h2>
-            <p class="project-meta">UTS Code2Change Hackathon &middot; 2019</p>
-            <p class="project-description">SiqInvite is a crowd-sourced zone-based local event feed, which aimed to provide young adults with assistance in finding relevant and popular activities currently occurring in their local area. This application was submitted as part of the UTS Code2Change Hackathon in 2019, and was aimed to tackle the problem of &ldquo;improving recreation and community within the City of Sydney&rdquo;.</p>
+            <div class="project-head">
+              <h2>SiqInvite, <span class="project-year">2019</span></h2>
+              <p>UTS Code2Change hackathon</p>
+            </div>
+            <p>Helps young adults find popular things to do near them right now, using a feed of local events posted by other users. Built for the hackathon’s challenge: “improving recreation and community within the City of Sydney”.</p>
             <ul class="project-links">
-              <li><a href="https://github.com/justinwilkin/code2change" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
-              <li><a href="https://docs.google.com/presentation/d/18fryf0koBxCFhefgzHMRpYB8Y87VRGjq2MeS7abHGh8/edit?usp=sharing" target="_blank" rel="noopener noreferrer nofollow">Final presentation</a></li>
+              <li><a class="act" href="https://github.com/justinwilkin/code2change" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://docs.google.com/presentation/d/18fryf0koBxCFhefgzHMRpYB8Y87VRGjq2MeS7abHGh8/edit?usp=sharing" target="_blank" rel="noopener noreferrer nofollow">Final presentation</a></li>
             </ul>
           </div>
-        </li>
-        <li class="project">
-          <a class="project-image-link" href="https://github.com/sguillema/code2learn-front-end" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/youts.jpg" alt="" width="800" height="668" loading="lazy">
-          </a>
+        </div>
+      </article>
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/youts.jpg" alt="Screenshot of YouTS" width="800" height="668" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">5</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://github.com/sguillema/code2learn-front-end" target="_blank" rel="noopener noreferrer nofollow">YouTS</a>
-            </h2>
-            <p class="project-meta">UTS Code2Learn Hackathon &middot; 2018</p>
-            <p class="project-description">An activity recommendation and matchmaking system that helps students find university society events they would actually enjoy, and find people to go with. Matchmaking ran off the big five personality traits and supported groups as well as individuals. We placed 4th.</p>
+            <div class="project-head">
+              <h2>YouTS, <span class="project-year">2018</span></h2>
+              <p>UTS Code2Learn hackathon · 4th place</p>
+            </div>
+            <p>Recommends university society events, then matches you with people to go with, using big-five personality traits.</p>
             <ul class="project-links">
-              <li><a href="https://github.com/sguillema/code2learn-front-end" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
-              <li><a href="https://docs.google.com/presentation/d/13MFP-2IggDJ8bfrPhmmXb7kxT96C3hGuN_u-MLILnn0/edit?usp=sharing" target="_blank" rel="noopener noreferrer nofollow">Final presentation</a></li>
+              <li><a class="act" href="https://github.com/sguillema/code2learn-front-end" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://docs.google.com/presentation/d/13MFP-2IggDJ8bfrPhmmXb7kxT96C3hGuN_u-MLILnn0/edit?usp=sharing" target="_blank" rel="noopener noreferrer nofollow">Final presentation</a></li>
             </ul>
           </div>
-        </li>
-        <li class="project">
-          <a class="project-image-link" href="https://doggoclicker.haydencrain.dev/" target="_blank" rel="noopener noreferrer nofollow" tabindex="-1" aria-hidden="true">
-            <img class="project-image" src="/assets/doggo-clicker.png" alt="" width="508" height="254" loading="lazy">
-          </a>
+        </div>
+      </article>
+      <article class="project">
+        <figure class="frame">
+          <img src="/assets/doggo-clicker.png" alt="Screenshot of Doggo Clicker" width="508" height="254" loading="lazy">
+        </figure>
+        <div class="project-info">
+          <span class="project-index" aria-hidden="true">6</span>
           <div class="project-body">
-            <h2 class="project-name">
-              <a href="https://doggoclicker.haydencrain.dev/" target="_blank" rel="noopener noreferrer nofollow">Doggo Clicker</a>
-            </h2>
-            <p class="project-meta">UTS Game Jam 2018 &middot; Nov 2018</p>
-            <p class="project-description">An Illuminati simulator where you extort the elderly to rise up the ranks of the Illuminati hierarchy. Built in 30 hours with Sheng and Andre for the UTS Student Game Jam, where we placed 8th of 16 teams.</p>
+            <div class="project-head">
+              <h2>Doggo Clicker, <span class="project-year">2018</span></h2>
+              <p>UTS Student Game Jam · 8th of 16</p>
+            </div>
+            <p>An Illuminati simulator: extort the elderly to climb the hierarchy. Made in 30 hours with Sheng and Andre.</p>
             <ul class="project-links">
-              <li><a href="https://doggoclicker.haydencrain.dev/" target="_blank" rel="noopener noreferrer nofollow">Play it</a></li>
-              <li><a href="https://github.com/haydencrain/uts-game-jam-2018" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
-              <li><a href="https://shengzeng.itch.io/" target="_blank" rel="noopener noreferrer nofollow">itch.io</a></li>
-              <li><a href="https://itch.io/jam/uts-student-game-jam-2018" target="_blank" rel="noopener noreferrer nofollow">The jam</a></li>
+              <li><a class="act" href="https://doggoclicker.haydencrain.dev/" target="_blank" rel="noopener noreferrer nofollow">Play it</a></li>
+              <li><a class="act" href="https://github.com/haydencrain/uts-game-jam-2018" target="_blank" rel="noopener noreferrer nofollow">Source</a></li>
+              <li><a class="act" href="https://shengzeng.itch.io/" target="_blank" rel="noopener noreferrer nofollow">itch.io</a></li>
+              <li><a class="act" href="https://itch.io/jam/uts-student-game-jam-2018" target="_blank" rel="noopener noreferrer nofollow">The jam</a></li>
             </ul>
           </div>
-        </li>
-      </ul>
-      <p class="project-note">More to come soon.</p>
+        </div>
+      </article>
     </div>
   </main>
 </body>

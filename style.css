@@ -1,13 +1,20 @@
+:root {
+  --wall: #eeece7;
+  --ink: #1c1b19;
+  --muted: #5a574f;
+  --rule: #d3cfc6;
+  --leader: #8d887f;
+  --mat: #fbfaf7;
+  --inset: 56px;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #f7f4ef;
-  font-family: 'Nanum Pen Script', cursive;
-  text-align: center;
+  background: var(--wall);
+  color: var(--ink);
+  font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   cursor: url("assets/cursor-default.png") 0 0, auto;
 }
 a,
@@ -20,230 +27,461 @@ textarea,
   cursor: url("assets/cursor-pointer.png") 0 0, pointer;
 }
 
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a.act {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--leader);
+}
+a.act:hover {
+  text-decoration-color: var(--ink);
+}
+
 .site-header {
-  padding: 1.5rem 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px var(--inset) 0;
+  font-size: 13px;
+  line-height: 16px;
+}
+/* Vertical padding keeps the tap target at 44px tall */
+.site-header a {
+  display: block;
+  padding: 14px 0;
+}
+.site-name {
+  color: var(--muted);
 }
 .site-nav {
   display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  font-size: 1.8rem;
-}
-.site-nav a {
-  color: #222;
-  text-decoration: none;
-}
-.site-nav a:hover,
-.site-nav a:active {
-  text-decoration: underline;
+  gap: 32px;
 }
 .site-nav a[aria-current="page"] {
-  text-decoration: underline;
+  font-weight: 600;
 }
 
-main {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
+/* Shared page column (About, Projects) */
+.page {
   box-sizing: border-box;
+  width: min(100% - 2 * var(--inset), 1040px);
+  margin: 0 auto;
+  padding: 76px 0 120px;
+}
+.page h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: auto minmax(120px, 1fr) auto;
-  grid-template-areas: "intro photo links";
-  gap: 2rem;
-}
-.photo {
-  display: block;
-  grid-area: photo;
-  justify-self: center;
-  width: min(292px, 100%, 60vw, 80vh * 292 / 851);
-  aspect-ratio: 292 / 851;
-  height: auto;
+/* A picture on the wall: ink border around a pale mat */
+.frame {
+  box-sizing: border-box;
+  width: fit-content;
   max-width: 100%;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  background: var(--mat);
 }
-.photo img {
+.frame img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
-p {
+
+/* Home: the photo sits in the middle column, the placard in the right */
+.home {
+  --photo-h: max(440px, min(594px, 74vh));
+  --reach: clamp(24px, 50vw - 360px, 72px); /* leader line length past the photo */
+  --gap: 12px;                              /* leader end to label */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  padding: 26px 0 64px;
+}
+.specimen {
+  grid-column: 2;
+  grid-row: 1;
   margin: 0;
-  font-size: 2.5rem;
-  color: #222;
 }
-.prefix {
-  grid-area: intro;
-  justify-self: start;
-  align-self: start;
-  font-size: 1.5rem;
+.specimen-plate {
+  position: relative;
 }
-.prefix .name {
-  font-size: 3rem;
+.specimen-plate picture {
+  display: block;
 }
-.links {
-  grid-area: links;
-  justify-self: end;
-  align-self: end;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  text-align: left;
+.specimen-photo {
+  display: block;
+  width: auto;
+  height: var(--photo-h);
 }
-.links .title {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-.links ul {
-  list-style: none;
+
+/* Notes are positioned as a share of the photo's box, so they stay on their details at any size */
+.notes {
+  position: absolute;
+  inset: 0;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  list-style: none;
 }
-.links a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  text-decoration: none;
+.note-line {
+  position: absolute;
+  top: var(--y);
+  height: 1px;
+  margin-top: -0.5px;
+  background: var(--leader);
+  opacity: 0.7;
 }
-.links a:hover {
-  text-decoration: underline;
+.note--right .note-line {
+  left: var(--x);
+  right: calc(-1 * var(--reach));
 }
-.links a img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+.note--left .note-line {
+  left: calc(-1 * var(--reach));
+  right: calc(100% - var(--x));
+}
+.note-label {
+  position: absolute;
+  top: var(--y);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+.note--right .note-label {
+  left: calc(100% + var(--reach) + var(--gap));
+}
+.note--left .note-label {
+  right: calc(100% + var(--reach) + var(--gap));
+}
+.note-num,
+.key {
+  display: none;
 }
 
-.page-content {
-  max-width: 700px;
-  font-size: 1.6rem;
-  color: #222;
+.placard {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: end;
+  box-sizing: border-box;
+  width: calc(var(--reach) + var(--gap) + 280px);
+  max-width: calc(100% - 24px);
+  margin-bottom: 27px;
+  padding-left: calc(var(--reach) + var(--gap));
+  font-size: 13px;
   line-height: 1.5;
 }
-.page-content--wide {
-  max-width: 1100px;
-  width: 100%;
+.placard h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
 }
-.page-content h1 {
-  font-size: 3rem;
-  margin: 0 0 1rem;
+.placard p {
+  margin: 2px 0 0;
 }
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "photo"
-      "intro"
-      "links";
-    justify-items: center;
-  }
-  .photo {
-    width: min(110px, 30vw);
-  }
-  .prefix {
-    justify-self: center;
-    align-self: auto;
-  }
-  .links {
-    justify-self: center;
-    align-self: auto;
-    text-align: center;
-  }
-  .links a {
-    justify-content: center;
-  }
-  .site-nav {
-    gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-}
-
-.project-list {
+.placard-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--rule);
   list-style: none;
-  margin: 0 0 2rem;
-  padding: 0;
+}
+.placard-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.placard-links img {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+/* About: text on the left, photo and chronology on the right.
+   Left edge lines up with Projects; the wider right column runs past it, as in the design. */
+.about {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 540fr) minmax(0, 394fr);
+  column-gap: clamp(48px, 12.5vw, 160px);
+  align-items: start;
+  width: auto;
+  max-width: 1094px;
+  margin-left: max(var(--inset), 50% - 520px);
+  margin-right: var(--inset);
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  line-height: 1.55;
+}
+.prose p {
+  margin: 0;
+}
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.about .frame img {
+  width: 360px;
+}
+.chronology {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chronology h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.chronology ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+  border-bottom: 1px solid var(--rule);
+}
+.chronology li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 16px;
+  padding: 11px 0;
+  border-top: 1px solid var(--rule);
+}
+.chronology time {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Projects: each entry spans two rows of a subgrid, so frames in a row share a bottom line */
+.projects h1 {
+  margin-bottom: 72px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(40px, 9.375vw, 120px);
+  row-gap: 96px;
 }
 .project {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 28px;
+}
+/* The image, not its mat, fills the column; the mat spills into the column gap */
+.project .frame {
+  align-self: end;
+  width: max-content;
+  max-width: calc(100% + 34px);
+}
+.project .frame img {
+  width: auto;
+  max-height: 296px;
+}
+.project-info {
   display: flex;
-  flex-direction: column;
-  border: 2px solid #222;
-  border-radius: 6px;
-  background: #fffdf9;
-  overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.project:hover,
-.project:focus-within {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #222;
-}
-.project-image-link {
-  display: block;
-}
-.project-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  border-bottom: 2px solid #222;
+.project-index {
+  flex: 0 0 20px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 .project-body {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 1rem 1rem;
-  text-align: left;
+  gap: 8px;
+  min-width: 0;
+  max-width: 400px;
 }
-.project-name {
+.project-body p {
   margin: 0;
-  font-size: 2rem;
-  font-weight: normal;
-  line-height: 1.1;
 }
-.project-name a {
-  color: #222;
-  text-decoration: none;
+.project-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
-.project-name a:hover,
-.project-name a:focus-visible {
-  text-decoration: underline;
+.project-head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
 }
-.project-meta,
-.project-description,
-.project-links {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+.project-year {
+  font-weight: 400;
 }
-.project-meta {
-  margin: 0.1rem 0 0;
-  font-size: 0.8rem;
-  color: #555;
-}
-.project-description {
-  margin: 0.6rem 0 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
+.project-stack {
+  font-style: italic;
+  color: var(--muted);
 }
 .project-links {
-  list-style: none;
-  margin: auto 0 0;
-  padding: 0.8rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1rem;
-  font-size: 0.85rem;
+  column-gap: 18px;
+  margin: -6px 0 0;
+  padding: 0;
+  list-style: none;
 }
 .project-links a {
-  color: #222;
+  display: block;
+  padding: 10px 0;
 }
-.project-note {
-  font-size: 1.6rem;
+
+@media (max-width: 760px) {
+  :root {
+    --inset: 24px;
+  }
+  .site-header {
+    padding-top: 8px;
+  }
+  .site-nav {
+    gap: 20px;
+  }
+  .page {
+    padding: 44px 0 72px;
+  }
+  .page h1 {
+    font-size: 20px;
+  }
+
+  /* Home becomes a field-guide key: numerals by the photo, captions listed below */
+  .home {
+    --photo-h: 520px;
+    --reach: 26px;
+    --gap: 6px;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 24px var(--inset) 64px;
+  }
+  .specimen {
+    grid-column: 1;
+  }
+  .specimen-plate {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .note-label {
+    font-size: 12px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .note-num {
+    display: inline;
+  }
+  .note-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .key {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--muted);
+    counter-reset: key;
+  }
+  .key li {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    counter-increment: key;
+  }
+  .key li::before {
+    content: counter(key);
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .placard {
+    grid-column: 1;
+    grid-row: auto;
+    width: auto;
+    max-width: none;
+    margin: 32px 0 0;
+    padding-left: 0;
+    font-size: 15px;
+  }
+  .placard h1 {
+    font-size: 17px;
+  }
+  .placard-links a {
+    font-size: 14px;
+  }
+
+  .about {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+    width: min(100% - 2 * var(--inset), 1040px);
+    max-width: none;
+    margin-inline: auto;
+  }
+  .prose {
+    gap: 16px;
+    font-size: 17px;
+  }
+  .about-side {
+    gap: 40px;
+  }
+  .chronology ol {
+    font-size: 15px;
+  }
+  .chronology li {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .projects h1 {
+    margin-bottom: 56px;
+  }
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 56px;
+  }
+  .project {
+    row-gap: 20px;
+  }
+  .project .frame {
+    width: auto;
+    max-width: none;
+  }
+  .project .frame img {
+    max-height: 260px;
+  }
+  .project-info {
+    font-size: 15px;
+  }
+  .project-head h2 {
+    font-size: 17px;
+  }
 }

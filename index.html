@@ -11,38 +11,68 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header class="site-header">
-    <nav class="site-nav">
+    <a class="site-name" href="/">haydencrain.dev</a>
+    <nav class="site-nav" aria-label="Main">
       <a href="/" aria-current="page">Home</a>
       <a href="/about">About</a>
       <a href="/projects">Projects</a>
     </nav>
   </header>
-  <main>
-    <div class="hero">
-      <p class="prefix">
-        hello, thank u for visiting<br>
-        <span class="name">HAYDEN CRAIN's</span><br>
-        webpage
-      </p>
-      <picture class="photo">
-        <source srcset="assets/hayden-standing.avif" type="image/avif">
-        <source srcset="assets/hayden-standing.webp" type="image/webp">
-        <img src="assets/hayden-standing.png" alt="Hayden Crain" width="292" height="851">
-      </picture>
-      <div class="links">
-        <p class="title">Senior Software Engineer at Canva</p>
-        <ul>
-          <li><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer nofollow"><img src="assets/canva.png" alt=""> https://www.canva.com/</a></li>
-          <li><a href="https://www.linkedin.com/in/hayden-crain/" target="_blank" rel="noopener noreferrer nofollow"><img src="assets/linkedin.svg" alt=""> https://www.linkedin.com/in/hayden-crain/</a></li>
-          <li><a href="https://github.com/haydencrain" target="_blank" rel="noopener noreferrer nofollow"><img src="assets/octocat.svg" alt=""> https://github.com/haydencrain</a></li>
-        </ul>
+  <main class="home">
+    <figure class="specimen">
+      <div class="specimen-plate">
+        <picture>
+          <source srcset="/assets/hayden-standing.avif" type="image/avif">
+          <source srcset="/assets/hayden-standing.webp" type="image/webp">
+          <img class="specimen-photo" src="/assets/hayden-standing.png" alt="Hayden Crain, standing, in a black hoodie holding a takeaway coffee and a paper bag" width="292" height="851">
+        </picture>
+        <!-- --x/--y: the detail each note points at, as a share of the photo's box -->
+        <ol class="notes">
+          <li class="note note--right" style="--x: 65.2%; --y: 7.07%">
+            <span class="note-line" aria-hidden="true"></span>
+            <span class="note-label"><span class="note-num" aria-hidden="true">1</span><span class="note-text">Hood, up.</span></span>
+          </li>
+          <li class="note note--right" style="--x: 73.04%; --y: 19.02%">
+            <span class="note-line" aria-hidden="true"></span>
+            <span class="note-label"><span class="note-num" aria-hidden="true">2</span><span class="note-text">Pastry, not for sharing.</span></span>
+          </li>
+          <li class="note note--left" style="--x: 16.18%; --y: 34.01%">
+            <span class="note-line" aria-hidden="true"></span>
+            <span class="note-label"><span class="note-num" aria-hidden="true">3</span><span class="note-text">Takeaway coffee. Not the first.</span></span>
+          </li>
+          <li class="note note--right" style="--x: 75.98%; --y: 57.07%">
+            <span class="note-line" aria-hidden="true"></span>
+            <span class="note-label"><span class="note-num" aria-hidden="true">4</span><span class="note-text">Pants, baggy.</span></span>
+          </li>
+          <li class="note note--left" style="--x: 26.96%; --y: 94.95%">
+            <span class="note-line" aria-hidden="true"></span>
+            <span class="note-label"><span class="note-num" aria-hidden="true">5</span><span class="note-text">Damn Daniel, what are those?</span></span>
+          </li>
+        </ol>
       </div>
-    </div>
+      <!-- Mobile-only key; screen readers get the same captions from .notes -->
+      <ol class="key" aria-hidden="true">
+        <li>Hood, up.</li>
+        <li>Pastry, not for sharing.</li>
+        <li>Takeaway coffee. Not the first.</li>
+        <li>Pants, baggy.</li>
+        <li>Damn Daniel, what are those?</li>
+      </ol>
+    </figure>
+    <section class="placard">
+      <h1>Hayden Crain</h1>
+      <p>Senior Software Engineer at Canva</p>
+      <ul class="placard-links">
+        <li><a class="act" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer nofollow"><img src="/assets/canva.png" alt="" width="14" height="14"><span>canva.com</span></a></li>
+        <li><a class="act" href="https://www.linkedin.com/in/hayden-crain/" target="_blank" rel="noopener noreferrer nofollow"><img src="/assets/linkedin.svg" alt="" width="14" height="14"><span>linkedin.com/in/hayden-crain</span></a></li>
+        <li><a class="act" href="https://github.com/haydencrain" target="_blank" rel="noopener noreferrer nofollow"><img src="/assets/octocat.svg" alt="" width="14" height="14"><span>github.com/haydencrain</span></a></li>
+      </ul>
+    </section>
   </main>
 </body>
 </html>
