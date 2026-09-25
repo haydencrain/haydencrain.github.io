@@ -11,21 +11,42 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header class="site-header">
-    <nav class="site-nav">
+    <a class="site-name" href="/">haydencrain.dev</a>
+    <nav class="site-nav" aria-label="Main">
       <a href="/">Home</a>
       <a href="/about" aria-current="page">About</a>
       <a href="/projects">Projects</a>
     </nav>
   </header>
-  <main>
-    <div class="page-content">
+  <main class="page about">
+    <div class="about-text">
       <h1>About</h1>
-      <p>More to come soon.</p>
+      <div class="prose">
+        <p>Hayden is a Senior Software Engineer with over 10 years of experience.</p>
+        <p>He’s currently on Canva’s AI Developer Experience team, building the tools and workflows that help engineers get more out of AI in their day-to-day work.</p>
+        <p>When away from a computer, you'll most likely find him at the nearest cafe or beach.</p>
+      </div>
+    </div>
+    <div class="about-side">
+      <figure class="frame">
+        <img src="/assets/artist-shot.jpg" alt="Childhood photo of Hayden as a toddler typing at a beige desktop computer, with a code snippet pasted over the monitor" width="640" height="478">
+      </figure>
+      <section class="chronology">
+        <h2>Chronology</h2>
+        <ol>
+          <li><time datetime="2016">2016</time><span>Software engineering intern, LoanFlare.</span></li>
+          <li><time datetime="2017">2017</time><span>Software developer, iP Edge.</span></li>
+          <li><time datetime="2019">2019</time><span>Joins Canva, Marketplace &amp; SEO.</span></li>
+          <li><time datetime="2020">2020</time><span>Graduates from UTS, First Class Honours.</span></li>
+          <li><time datetime="2024">2024</time><span>Senior Software Engineer, Discovery.</span></li>
+          <li><time datetime="2026">2026</time><span>Senior Software Engineer, AI Developer Experience.</span></li>
+        </ol>
+      </section>
     </div>
   </main>
 </body>
